@@ -1,7 +1,13 @@
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
+# 1. 检查加载.env文件之前的值
+print(f"DEBUG: Before load_dotenv, TELEGRAM_BOT_TOKEN is: {os.environ.get('TELEGRAM_BOT_TOKEN')}")
+
+load_dotenv(verbose=True)
+
+# 2. 检查加载.env文件之后的值
+print(f"DEBUG: After load_dotenv, TELEGRAM_BOT_TOKEN is: {os.environ.get('TELEGRAM_BOT_TOKEN')}")
 
 telegram_config = {
     "token": os.environ.get("TELEGRAM_BOT_TOKEN", ""),
